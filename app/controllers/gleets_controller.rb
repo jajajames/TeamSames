@@ -2,7 +2,7 @@ class GleetsController < ApplicationController
   before_action :require_user, only: [:new, :create, :destroy]
 
   def index
-    @gleets = Gleet.order(:created_at).page(params[:page])
+    @gleets = Gleet.order(:created_at => :desc).page(params[:page])
   end
 
   def new
@@ -12,19 +12,21 @@ class GleetsController < ApplicationController
 
   def create
     @gleet = Gleet.new(gleet_params)
-    @gleet.user_id = params[:user_id]
+    @gleet.user = current_user
     if @gleet.save
       flash[:success] = "A new Gleet shines in the sun!"
-      redirect_to :root
+      redirect_to current_user
     else
-      render :new
+      flash[:warning] = "Please, glitter responsibly."
+      redirect_to current_user
     end
   end
 
   def destroy
-    Gleet.find(params[:id]).destroy
+    gleet = Gleet.find(params[:id])
+    gleet.destroy if gleet.user == current_user
     flash[:success] = "That Gleet has shined its last"
-    redirect_to :root
+    redirect_to :back
   end
 
   private
@@ -32,5 +34,4 @@ class GleetsController < ApplicationController
   def gleet_params
     params.require(:gleet).permit(:body)
   end
-
 end

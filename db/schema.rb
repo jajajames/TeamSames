@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407215631) do
+ActiveRecord::Schema.define(version: 20160409205058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blockings", force: :cascade do |t|
+    t.integer  "blocker_id"
+    t.integer  "blocked_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "blockings", ["blocked_id"], name: "index_blockings_on_blocked_id", using: :btree
+  add_index "blockings", ["blocker_id", "blocked_id"], name: "index_blockings_on_blocker_id_and_blocked_id", unique: true, using: :btree
+  add_index "blockings", ["blocker_id"], name: "index_blockings_on_blocker_id", using: :btree
 
   create_table "follows", force: :cascade do |t|
     t.string   "follower_type"

@@ -2,11 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$gleet-purple: rgba(130,100,240,1);
+
 body {
   background: rgba(250,245,255,1);
   font-family: 'Oxygen', sans-serif;
   font-weight: 400;
-  color: rgba(130,100,240,1);
+  color: $gleet-purple;
 }
 
 .jumbotron {
@@ -58,14 +60,14 @@ body {
 }
 
 .gleet {
-  margin-top: 5px;
+  margin-bottom: 5px;
   padding: 0 10px;
   background-color: #fff;
   border: 1px solid rgba(130,100,240,.5);
   border-radius: 4px;
   a {
     font-weight: 700;
-    color: rgba(130,100,240,1);
+    color: $gleet-purple;
   }
 }
 
@@ -81,56 +83,64 @@ body {
 
 .pagination > li > a {
   border: 1px solid rgba(130,100,240,.5);
-  color: rgba(130,100,240,1);
+  color: $gleet-purple;
 }
 
 .pagination > li > a:hover {
   border: 1px solid rgba(130,100,240,.5);
-  color: rgba(130,100,240,1);
+  color: $gleet-purple;
   background-color: rgba(130,100,240,.2);
 }
 
 .pagination > .disabled > a {
   border-color: rgba(130,100,240,.5);
-  color: rgba(130,100,240,1);
+  color: $gleet-purple;
 }
 
 .pagination > .disabled > a:hover {
   border-color: rgba(130,100,240,.5);
-  color: rgba(130,100,240,1);
+  color: $gleet-purple;
 }
 
 .form-control {
   border-color: rgba(130,100,240,.5);
-  color: rgba(130,100,240,1);
+  color: $gleet-purple;
 }
 
 .form-control:focus {
-  border-color: rgba(130,100,240,1);
+  border-color: $gleet-purple;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(130,100,240,.5);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(130,100,240,.5);
 }
 
+.form-control::-webkit-input-placeholder {
+  color: rgba(130,100,240,.5);
+}
+
+.btn {
+  margin: 10px 0;
+}
+
 .btn-default {
-  color: rgba(130,100,240,1);
+  color: $gleet-purple;
   border-color: rgba(130,100,240,.5);
 }
 
 .btn-default:focus, .btn-default.focus {
-  color: rgba(130,100,240,1);
+  color: $gleet-purple;
   background-color: rgba(130,100,240,.5);
   border-color: rgba(130,100,240,.5);
 }
 
 .btn-default:hover {
-  color: rgba(130,100,240,1);
+  color: $gleet-purple;
   background-color: rgba(130,100,240,.2);
   border-color: rgba(130,100,240,.5);
 }
 
 .btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {
-  color: rgba(130,100,240,1);
+  color: $gleet-purple;
   background-color: rgba(130,100,240,.2);
   border-color: rgba(130,100,240,.5);
 }
@@ -140,6 +150,57 @@ body {
   background-image: none;
   -webkit-box-shadow: inset 0 3px 5px rgba(130,100,240,.1);
   box-shadow: inset 0 3px 5px rgba(130,100,240,.1);
+}
+
+#btn-gleet {
+  margin: -5px 0px 10px 0px;
+}
+
+.full-width {
+  a {
+  width: 100%;
+  }
+}
+
+.user-buttons {
+  margin-top: -40px;
+}
+
+#btn-follow {
+  color: #fff;
+  background-color: rgba(130,100,240,.5);
+  transition: background-color .2s ease-out;
+}
+
+#btn-follow:hover {
+  background-color: rgba(130,100,240,.8);
+}
+
+.about-page {
+  h1 {
+    margin-bottom: 20px;
+  }
+  p {
+    line-height: 2;
+  }
+}
+
+.footer {
+  a {
+      color: $gleet-purple;
+    }
+  margin-top: 33px;
+  padding-top: 3px;
+  border-top: 1px solid $gleet-purple;
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    li {
+      float: left;
+    }
+  }
 }
 
 @media screen and (max-width: 1050px) {
